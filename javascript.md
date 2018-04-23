@@ -3849,6 +3849,7 @@ console.log(wellcome('Coco')); // Wellcome Coco
 * [MDN Closures doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 * [Robert Nyman - Explaining JavaScript scope and closures](https://robertnyman.com/2008/10/09/explaining-javascript-scope-and-closures)
 * [RisingStack - Explaining JavaScript closure scope chain examples](https://community.risingstack.com/explaining-javascript-closure-scope-chain-examples)
+* [freeCodeCamp - What’s a JavaScript closure?](https://medium.freecodecamp.org/whats-a-javascript-closure-in-plain-english-please-6a1fc1d2ff1c)
 
 ## More about functions!
 
