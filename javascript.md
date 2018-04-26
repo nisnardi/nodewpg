@@ -1082,7 +1082,7 @@ console.log(10 !== '10'); // true
 ```js
 let age = 20;
 let password = 'js1234';
-let result = (edad >= 18 && password ==='js1234');
+let result = (age >= 18 && password ==='js1234');
 console.log('Result: ', result); // We get true as both expressions are true
 ```
 
@@ -1156,7 +1156,7 @@ console.log('User age greater than 18?: ', !result);
 [Exercise 37](./exercises/js/ex_37.md)
 
 ## String special characters
-* Existen caracteres especiales en los **strings** que agregan un valor extra
+* Strings support some special characters that will provide exta functionality
 * \n  New Line
 * \t  Tab
 * \r  Carriage back
@@ -1533,3 +1533,2459 @@ console.log(typeof message); // string
 
 #### Practice
 [Exercise 48](./exercises/js/ex_48.md)
+
+## Conditionals / Making decisions in your code
+* In any programming language, code needs to make decisions and carry out actions accordingly depending on different inputs
+* For example, in a game, if the player's number of lives is 0, then it's game over
+* In a weather app, if it is being looked at in the morning, show a sunrise graphic; show stars and a moon if it is nighttime
+* Conditional statements allow us to represent this kind of decision making in JavaScript from the choice that must be made, to the resulting outcome of those choices
+* [MDN conditionals doc](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+
+## If statement
+* The **if** statement executes a statement if a specified condition is **truthy**
+* If the condition is **falsy**, another statement can be executed
+* [if else](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
+![if](./resources/images/js/if.gif)
+
+**Example:**
+```js
+// Basic if statement structure
+if (condition) {
+  // If statement body
+  // We'll add the code that we want to execute if the condition is truthy
+}
+```
+
+* When coding we need to make decisions based on the conditions that we need
+* The if statements will execute this conditions and check wether they are true or false (boolean / truthy & falsy values, more about this soon)
+* If the statement it's truthy then it will execute the if statement body
+* If not, in case the condition is falsy it will ignore the if statement body and won't execute the code
+* Whether the condition it's true or false the code after the if statement it's going to be executed anyway following the natural code flow
+
+**Example:**
+```js
+if (true) {
+  console.log('Using a if statement with a true condition');
+}
+```
+
+* In this example we use a **true** boolean value as condition so it's true all the time (its a literal value, no condition here!)
+* So we can read this like: `If condition is true then execute the following console.log()`
+
+**Example:**
+```js
+const playerLifer = 0;
+
+if (playerLife == 0) {
+  console.log('Game Over!!!!');
+}
+```
+
+* We can read this statement like: `if the players like it's 0 then show a Game Over message`
+* It's easy to use **if condition then** phrase to detect that we need a if statement
+* Once the if statement has been executed the code flow continues
+
+**Example:**
+```js
+const number = 1;
+
+if (number >= 2) {
+  console.log('We won\'t see this message as the condition it\'s always false');
+}
+
+console.log('We will see this massege all the time as it doesn\'t depend on the if statement and the code flows keeps on going');
+```
+
+#### Practice
+[Exercise 49](./exercises/js/ex_49.md)
+
+[Exercise 50](./exercises/js/ex_50.md)
+
+[Exercise 51](./exercises/js/ex_51.md)
+
+## If / else statement
+* Now we know how to use a if statement to check for a given condition but we only care about when it's a truthy value
+* In some cases we need to control also what happens in case the condition is falsy
+
+![if/else](./resources/images/js/if-else.gif)
+
+**Example:**
+```js
+if (condition) {
+  // if truthy then it will execute this code
+} else {
+  // if not, then it will execute this code
+}
+```
+
+```js
+const number = 5;
+
+if (number === 2) {
+  console.log('The number is 2');
+} else {
+  console.log('The number is not 2');
+}
+```
+
+* We can read this code like: `IF number equals 2 THEN show the number is 2 message ELSE show the number is not 2 message` 
+
+#### Practice
+[Exercise 52](./exercises/js/ex_52.md)
+
+[Exercise 53](./exercises/js/ex_53.md)
+
+[Exercise 54](./exercises/js/ex_54.md)
+
+### Conditional ternary operator
+* The conditional **ternary operator** is the only JavaScript operator that takes three operands
+* This operator is frequently used as a shortcut for the if statement
+* To use this operator we do it the following way: `(condition) ? true : false`
+* If the condition is truthy then it will execute the code that follows the question character
+* In case it's falsy then it will execute the code that follows the double colon character
+
+**Example:**
+```js
+let number = 2;
+let message = (number === 2) ? 'The number is 2' : 'The number is not 2';
+
+console.log(message);
+```
+
+#### Practice
+[Exercise 55](./exercises/js/ex_55.md)
+
+[Exercise 56](./exercises/js/ex_56.md)
+
+[Exercise 57](./exercises/js/ex_57.md)
+
+### If else if
+* We can also use if else if to check for more conditions
+
+**Example:**
+```js
+if (condition) {
+  // This code gets executed if the condition it's true
+} else if (otherCondition) {
+  // This code gets executed if the otherCondition it's true
+} else {
+  // This code gets executed if none of the other conditions where true
+}
+```
+
+```js
+const name = 'Marta';
+
+if (name === 'Miriam') {
+  console.log('The name is Miriam');
+} else if (nombre === 'Felipa') {
+  console.log('The name is Felipa');
+} else {
+  console.log('The name is not Miriam or Felipa');
+}
+```
+
+* In this example we ask for different conditions
+* We can keep on adding if else if statements to check for more conditions
+* Our code might not as easy to read and follow if we use too many if else if statements
+* Try to avoid nesting too many if else if statements
+
+#### Practice
+[Exercise 58](./exercises/js/ex_58.md)
+
+[Exercise 59](./exercises/js/ex_59.md)
+
+[Exercise 60](./exercises/js/ex_60.md)
+
+### Switch
+* The switch statement evaluates an expression
+* Matching the expression's value to a case clause
+* Then executes statements associated with that case
+* If we don't break it will execute the follow the matching case
+
+```js
+const name = 'Marta';
+
+if (name === 'Miriam') {
+  console.log('The name is Miriam');
+} else if (nombre === 'Felipa') {
+  console.log('The name is Felipa');
+} else {
+  console.log('The name is not Miriam or Felipa');
+}
+```
+
+* If we keep nesting statements it's going to be difficut to follow this code
+
+```js
+const name = 'Marta';
+
+if (name === 'Miriam') {
+  console.log('The name is Miriam');
+} else if (name === 'Felipa') {
+  console.log('The name is Felipa');
+} else if (name === 'Xime') {
+  console.log('The name is Xime');
+} else if (name === 'Belu') {
+  console.log('The name is Belu');
+} else {
+  console.log('The name is not Marta, Felipa, Xime or Belu');
+}
+```
+
+* We can acomplish the same result using a **switch** statement
+
+**Example:**
+```js
+const name = 'marta';
+let message = null;
+,
+switch (name) {
+  case 'Miriam':
+    message = 'The name is Miriam';
+    break;
+  case 'Felipa':
+    message = 'The name is Felipa';
+    break;
+  case 'Xime':
+    message = 'The name is Xime';
+    break;
+  case 'Belu':
+    message = 'The name is Belu';
+    break;
+  default:
+     message = 'The name is not Marta, Felipa, Xime or Belu';
+}
+
+console.log(message);
+```
+* The optional **break** statement associated with each case label ensures that the program breaks out of switch once the matched statement is executed and continues execution at the statement following switch
+* If break is omitted, the program continues execution at the next statement in the switch statement
+* [MDN switch doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+
+#### Practice
+[Exercise 61](./exercises/js/ex_61.md)
+
+[Exercise 62](./exercises/js/ex_62.md)
+
+[Exercise 63](./exercises/js/ex_63.md)
+
+
+## Truthy and Falsy (valores verdaderos y falsos)
+* In JavaScript we have values that are truthy and falsy
+* This means that some values might be true and some values might be false
+* For true and false values we use boolean
+* When using some values as condition they wi'll evaluated as true (truthy) or false (falsy) values depending the value data type
+* So, a **truthy** value is a value that is considered true when evaluated in a Boolean context
+* All values are truthy unless they are defined as falsy
+* A falsy value is a value that translates to false when evaluated in a Boolean context
+* The following values are considered falsy values:
+  * false
+  * null
+  * undefined
+  * 0
+  * NaN
+  * ''
+
+**Example:**
+```js
+if ('') {
+  // This code won't get executed as an empty string is a falsy value
+} else {
+  // This code gets executed
+}
+```
+
+**Example:**
+```js
+const name = '';
+
+if (name === '') {
+  console.log('Please input your name');
+} else {
+  console.log('Wellcome: ' + name);
+}
+```
+
+* We can also try the following condition
+
+**Example:**
+```js
+const name = '';
+
+if (name) {
+  console.log('Wellcome: ' + name);
+} else {
+  console.log('Please input your name');  
+}
+```
+
+* If name is empty then it will be evaluated as a falsy value so in this case we don't need to compare it to an empty string
+* Truthy and falsy values are an easy way to use some conditions
+* One special case is using null:
+
+**Example:**
+```js
+const name = null;
+
+if (name) {
+  console.log('Wellcome: ' + name);
+} else {
+  console.log('Please input your name');  
+}
+
+console.log(typeof name) // object
+```
+
+* Using a null value it's going to be evaluated as an object and it will become truthy
+* When using null we'll have to add an extra validation
+
+**Example:**
+```js
+const name = null;
+
+if (name && null !== null) {
+  console.log('Wellcome: ' + name);
+} else {
+  console.log('Please input your name');  
+}
+```
+
+* [MDN Falsy doc](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+* [MDN Truthy doc](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
+* [MDN Type Conversion doc](https://developer.mozilla.org/en-US/docs/Glossary/Type_Conversion)
+
+#### Practice
+[Exercise 64](./exercises/js/ex_64.md)
+
+[Exercise 65](./exercises/js/ex_65.md)
+
+#### Estructuras de repetición
+* It's common that when coding we need to keep repeting the same code execution until a given condition it's true
+* For example I might want to show numbers from 0 to 10 to create a list
+
+**Example:**
+```js
+console.log(0);
+console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);
+console.log(6);
+console.log(7);
+console.log(8);
+console.log(9);
+console.log(10);
+```
+
+* This code works
+* But what about if you need to add more functionality or you need to show more numbers like to a 100 or to a 1000
+* We'll go crazy, right?
+
+**Example:**
+```js
+console.log('number: ', 0);
+console.log('number: ', 1);
+console.log('number: ', 2);
+console.log('number: ', 3);
+console.log('number: ', 4);
+console.log('number: ', 5);
+console.log('number: ', 6);
+console.log('number: ', 7);
+console.log('number: ', 8);
+console.log('number: ', 9);
+console.log('number: ', 10);
+```
+
+* Thanks we can use iteration to solve this problem
+
+### While
+* The **while statement** creates a loop that executes a specified statement as long as the test condition evaluates to true
+* The condition is evaluated before executing the statement
+
+**Example:**
+```js
+while (condition) {
+  console.log('This code it\'s goin to be executed until the condition is false');
+}
+```
+
+* Let refactor the numbers code so it works for 10, 100 or 1000 numbers!
+
+**Example:**
+```js
+let number = 0;
+
+while (number < 11) {
+  console.log(number);
+  number++;
+}
+```
+
+* With only a couple of lines of code we can solve the previous feature
+* Now we only need one change to show up to 1000 numbers
+
+**Example:**
+```js
+let number = 0;
+
+while (number < 1001) {
+  console.log(number);
+  number++;
+}
+```
+
+* Also, if we need to change the code to add more functionality we can do it in a really simple and easy way:
+
+**Example:**
+```js
+let number = 0;
+
+while (number < 1001) {
+  console.log('number: ', number);
+  number++;
+}
+```
+
+* Using while we can repeat the block code until the condition is false
+* In each iteration we use number++ to increase the number value
+* Once we reach 1001 number will no longer be lower than 1001 so the condition will be false
+* The code will continue the normal code flow
+* We need to be careful as the condition might be always true and this script will continue to execute for ever
+* At some point the engine will throw a recursivity exeption and we'll get an error
+* Always to asure to change the condition so it becomes false at some point
+
+**Example:**
+```js
+while (true) {
+  console.log('Server will run out after executing this code many times!');
+}
+
+let number = 0;
+
+while (number < 10000) {
+  console.log('number: ', number);
+  // We never changed number value so it's always going to be 0 and then less than 10000 so the condition will always be true :(
+}
+
+```
+* The while statement will not be executed if the condition it's false from the begining
+
+**Example:**
+```js
+while (false) {
+  console.log('This code doesn\'t get executed');
+}
+
+let number = 1000;
+
+while (number < 10) {
+  console.log('number: ', number);
+  number++;
+  // All this code won't get executed as the initial condition is false
+}
+```
+
+* If the condition is false the engine will ingnore it
+* [MDN while doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+
+#### Practice
+[Exercise 66](./exercises/js/ex_66.md)
+
+[Exercise 67](./exercises/js/ex_67.md)
+
+[Exercise 68](./exercises/js/ex_68.md)
+
+[Exercise 69](./exercises/js/ex_69.md)
+
+[Exercise 70](./exercises/js/ex_70.md)
+
+[Exercise 71](./exercises/js/ex_71.md)
+
+[Exercise 72](./exercises/js/ex_72.md)
+
+[Exercise 73](./exercises/js/ex_73.md)
+
+[Exercise 74](./exercises/js/ex_74.md)
+
+[Exercise 75](./exercises/js/ex_75.md)  (advance)
+
+### do/while
+* The **do/while** statement creates a loop that executes a specified statement until the test condition evaluates to false
+* The condition is evaluated after executing the statement, resulting in the specified statement executing **at least once**
+* In this case the code will be executed once and then ask for a condition
+* It's similar to while but the difference it's where we use the condition to evaluate wether it will iterate or not
+
+**Example:**
+```js
+do {
+  // This code will execute at least once
+} while (condition)
+```
+
+* It will keep iterating until the condition is false
+* If the condition is always true we have the same while true problem
+
+**Example:**
+```js
+do {
+  // we'll get a exeption or error
+} while (true)
+```
+
+* We can refactor one of the previous examples using do while:
+
+**Example:**
+```js
+let number = 0;
+
+do {
+  console.log('number: ', number);
+  number++;
+} while (number < 10000) {
+```
+
+* In this case we show the message
+* Increment the number value
+* Then evaluate the condition
+* We'll iterate until the condition is false
+
+**Example:**
+```js
+let number = 1000;
+
+do {
+  console.log('number: ', number);
+  number++;
+} while (number < 10) {
+```
+
+* In this example we'll only show number 1000 once and then it won't iterate
+* Here we can see that even having a false condition do/while gets executed at least once
+* [MDN do...while doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
+
+#### Practice
+[Exercise 76](./exercises/js/ex_76.md)
+
+[Exercise 77](./exercises/js/ex_77.md)
+
+[Exercise 78](./exercises/js/ex_78.md)
+
+[Exercise 79](./exercises/js/ex_79.md)
+
+[Exercise 80](./exercises/js/ex_80.md)
+
+[Exercise 81](./exercises/js/ex_81.md)
+
+[Exercise 82](./exercises/js/ex_82.md)
+
+[Exercise 83](./exercises/js/ex_83.md)
+
+[Exercise 84](./exercises/js/ex_84.md)
+
+[Exercise 85](./exercises/js/ex_85.md)
+
+## For
+* The **for** statement creates a loop that consists of three optional expressions
+* Enclosed in parentheses and separated by semicolons
+* Followed by a statement (usually a block statement) to be executed in the loop
+
+**Example:**
+```js
+for (initialization; condition; finalExpression) {
+  // statement
+}
+```
+
+* Initialization: An expression (including assignment expressions) or variable declaration
+* Condition: An expression to be evaluated before each loop iteration
+* finalExpression: An expression to be evaluated at the end of each loop iteration
+* For example to iterate over numbers between 0 and 10 we write the following code:
+
+**Example:**
+```js
+for (let number = 0; number <= 10; number++) {
+  console.log(number);
+}
+```
+
+* Initialization: `let number = 0;`
+* Condition: `number <= 10;`
+* finalExpression: `number++`
+
+* We initialize a number variable with the value 0
+* Then the condition it's going to be evaluated
+* If the condition is true it will execute the block statements
+* After iterating it will execute the final expression, in this case it's to increment one more number value
+* It's still preatty easy to refactor code:
+
+**Example:**
+```js
+for (let number = 0; number <= 1000; number++) {
+  console.log('number: ', number);
+}
+```
+
+* [MDN for doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+
+#### Practice
+[Exercise 86](./exercises/js/ex_86.md)
+
+[Exercise 87](./exercises/js/ex_87.md)
+
+[Exercise 88](./exercises/js/ex_88.md)
+
+[Exercise 89](./exercises/js/ex_89.md)
+
+[Exercise 90](./exercises/js/ex_90.md)
+
+[Exercise 91](./exercises/js/ex_91.md)
+
+[Exercise 92](./exercises/js/ex_92.md)
+
+[Exercise 93](./exercises/js/ex_93.md)
+
+[Exercise 94](./exercises/js/ex_94.md)
+
+[Exercise 95](./exercises/js/ex_95.md)
+
+[Exercise 96](./exercises/js/ex_96.md)
+
+[Exercise 97](./exercises/js/ex_97.md)
+
+### Break
+* The **break** statement terminates the current loop or switch statement and transfers program control to the statement following the terminated statement
+
+**Example:**
+```js
+for (let i = 0; i < 1000; i++){
+  break;
+}
+```
+
+* En este ejemplo se va a intentar correr el for, va a declarar la variable i, se le va a asignar el valor y luego se va a cortar la ejecución por el break.
+
+**Example:**
+```js
+for (let index = 0; index < 1000; index++){
+  if (index < 10) {
+    console.log(index);
+  } else {
+    break;
+  }
+}
+```
+
+* In this example we will iterate until index is 10 and then cut the iteration execution
+* So we only show numbers from 0 to 9
+* [MDN break doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+
+#### Practice
+[Exercise 98](./exercises/js/ex_98.md)
+
+[Exercise 99](./exercises/js/ex_99.md)
+
+## Functions
+* In JavaScript **function** is a value
+* We use functions to group functionality
+* Using functions allows us to avoid repeting code
+* Use the **function** reserved word to define a function
+* We need to define the function before executing it
+* Use the function name and () to call the given function
+
+**Example:**
+```js
+function greeting() {
+  console.log('Hello');
+}
+
+greeting(); // Shows Hello as output
+greeting(); // Shows Hello as output
+```
+
+* In this example we define a greeting function
+* Then we call the greeting function using ()
+* Each time we call the greeting function it will execute the function block code
+* That's why we output 2 times hello as the greating function only has a console.log('Hello'); 
+* Now we can use this function many times without having to repeat the code
+* We can also use functions to test our code too
+
+#### Practice
+[Exercise 100](./exercises/js/ex_100.md)
+
+[Exercise 101](./exercises/js/ex_101.md)
+
+* In JavaScript functions are a type of value so we can assign
+* We can assign a function to a variable
+* When we assign a function to a variable we don't need to name our function as we have the variable for
+* Functions without a name are considered anonymous
+
+**Example:**
+```js
+// Look how we don't name our function, we just assign it
+const greeting = function() {
+  console.log('Hello');
+}
+
+greeting(); // Shows Hello as output
+greeting(); // Shows Hello as output
+```
+
+* In this example we define a **greeting** and then assing a **function** value
+* Assigning the variable works the same way that any other data type (string, number, boolean)
+* This is because a function is a JavaScript data type!! :)
+
+#### Practice
+[Exercise 102](./exercises/js/ex_102.md)
+
+[Exercise 103](./exercises/js/ex_103.md)
+
+[Exercise 104](./exercises/js/ex_104.md)
+
+* A function might return a value
+* When a function doesn't explicit return a value it will return a **undefined** value
+* To explicit return a value from a function we use the **return** reserved keyword
+
+**Example:**
+```js
+function getGreetingMessage() {
+  return 'Hello';
+}
+
+getGreetingMessage();
+```
+
+* The first time we call the getGreetingMessage() the function gets executed, returns a string value with the word Hello
+* We are not doing anything with the returned value
+
+**Example:**
+```js
+function getGreetingMessage() {
+  return 'Hello';
+}
+
+console.log(getGreetingMessage());
+```
+
+* In this example we call the function getGreetingMessage() we get a string back
+* Then we get that returned string value and print it using console.log()
+* We can use the returned valur for anything for example we can assign it to a variable
+
+**Example:**
+```js
+function getGreetingMessage() {
+  return 'Hello';
+}
+
+const greeting = getGreetingMessage(); 
+console.log(greeting);
+```
+
+* This example shows how to call the getGreetingMessage() function, get the string back and then assign it to a variable
+* Once we have the value in a variable we can do anything like console.log(greeting)
+* A function can also return any data type
+
+**Example:**
+```js
+function getUserAge() {
+  return 30;
+}
+
+function isUserLoggedIn() {
+  return true;
+}
+```
+
+* In this example both functions return a different data type
+* The getUserAge function returns a number
+* The isUserLoggedIn function returns a boolean
+* We can also use the returned value as conditionals
+
+**Example:**
+```js
+function getUserAge() {
+  return 30;
+}
+
+function isUserLoggedIn() {
+  return true;
+}
+
+if (getUserAge() >= 18) {
+  console.log('The user is older than 18');
+}
+
+if (isUserLoggedIn()) {
+  console.log('Wellcome to the site');
+}
+```
+
+* In the first if statement we call the getUserAge function and get a number back (30)
+* Then we compare that to know if the returned valur is bigger or equal to 18
+* In the second if statement we call the isUserLoggedIn, get a boolean value back
+* If the returned value is true then we show the message to the user
+* If it's false then the if statement block won't be executed
+
+#### Practice
+[Exercise 105](./exercises/js/ex_105.md)
+
+[Exercise 106](./exercises/js/ex_106.md)
+
+* Functions can accept none, one or many parameters
+* We can have more flexible functions using parameters
+* Also we can reuse the function functionality for differen parameters values
+* Define the amount of functions parameters while defining the function
+* Also we can name each parameter so it has more context inside the function
+* We can use the functions parameters inside the function block content
+
+**Example:**
+```js
+function(firstParameter, secondParameter, thirdParameter) {
+  console.log(firstParameter, secondParameter, thirdParameter);
+}
+```
+
+* We can use parameter the following way:
+
+**Example:**
+```js
+function greeting(username) {
+  console.log('Hi ' + username + '!!!');
+}
+
+greeting('Marta'); // Hi Marta!!!
+greeting('Xime'); // Hi Xime!!!
+greeting('Raul'); // Hi Raul!!!
+```
+
+* There's a lot going on in this example:
+  * Define the **greeting** named function
+  * The greeting function accepts a **username** parameter
+  * **username** works as an function internal variable
+  * The **username** param will get the value that we pass calling the function 
+  * Al ejecutar la función `saludar('Marta')` estamos pasando 'Marta' como parámetro `Example: greeting('Marta')`
+  * The first time we call the greeting function we pass 'Marta' as parameter and it will become username in the greeting block content
+  * We can pass a function different parameters values (example: Marta, Xime, Raul)
+
+**Example:**
+```js
+const greeting = function(username) {
+  console.log('Hi ' + username + '!!!');
+}
+
+greeting('Marta'); // Hi Marta!!!
+greeting('Xime'); // Hi Xime!!!
+greeting('Raul'); // Hi Raul!!!
+```
+
+* We can also use parameters using anonymous functions and using them as variables values
+* Refactor the code so the function returns a value instead of showing it as output
+
+**Example:**
+```js
+const getGreetingMessage = function(username) {
+  return 'Hi ' + username + '!!!';
+}
+
+console.log( getGreetingMessage('Marta') ); // Hi Marta!!!
+console.log( getGreetingMessage('Xime') ); // Hi Xime!!!
+console.log( getGreetingMessage('Raúl') ); // Hi Raul!!!
+```
+
+* In this case we define a **getGreetingMessage** variable and assing a function as value
+* The assigned function accepts a **username** parameter 
+* Now we can call the function the same way as before **getGreetingMessage()**
+* To pass the parameter we just add the value this way: **getGreetingMessage('Marta')**
+* The **getGreetingMessage** returns a string with the message hi and concatenates the username value
+* Then we call the **getGreetingMessage('Marta')** and get the following string in return: Hi Marta!!!
+* Changing the function parameters changes the returned value
+* Also, a function can accept more parameters
+* It's important to pass the parameters in the same order when we define and call the function
+
+**Example:**
+```js
+const greeting = function(username, age) {
+  console.log('The user: ' + username + ' has ' + age + ' years!!!';
+}
+
+greeting('Nico', 39); // The user: Nico has 39 years!!!
+greeting(18, 'Marta'); // The user: 18 has Marta years!!!
+```
+
+* The first call has the right parameters order, so we get the spected result
+* In the second call we get we pass the parameters order in the wrong way so we get an unespected result back
+
+#### Practice
+[Exercise 106](./exercises/js/ex_106.md)
+
+[Exercise 107](./exercises/js/ex_107.md)
+
+[Exercise 108](./exercises/js/ex_108.md)
+
+[Exercise 109](./exercises/js/ex_109.md)
+
+[Exercise 110](./exercises/js/ex_110.md)
+
+[Exercise 111](./exercises/js/ex_111.md)
+
+[Exercise 112](./exercises/js/ex_112.md)
+
+[Exercise 113](./exercises/js/ex_113.md)
+
+[Exercise 114](./exercises/js/ex_114.md)
+
+[Exercise 115](./exercises/js/ex_115.md)
+
+[Exercise 116](./exercises/js/ex_116.md)
+
+#### Array
+* An **array** literal is a list of zero or more expressions
+* Each value represents an array elementent
+* The values are closed in square brackets **[]**
+* Creating an array using an array literal, it's initialized with the specified values as its elements, and its length is set to the number of arguments specified
+* This type of value allows us to store more than one value into a variable
+* We create an array literal in the following way:
+
+**Example:**
+```js
+['nico', 'pedro', 'juan', 'marta', 'belen', 'emilia', 'xime'];
+```
+
+* In this example we have an array literal of names
+* We have an array of string values
+* The values look like people names
+* This array has 7 items
+
+**Example:**
+```js
+const people = ['nico', 'pedro', 'juan', 'marta', 'belen', 'emilia', 'xime'];
+
+// We can also write it in his way:
+const people = [
+  'nico', 
+  'pedro', 
+  'juan', 
+  'marta', 
+  'belen', 
+  'emilia', 
+  'xime'
+];
+```
+
+* To asigna an empty array we just asing the **[]** to a variable like this:
+
+**Example:**
+```js
+const people = [];
+```
+
+* In JavaScript arrays can have mixed types of values
+
+**Example:**
+```js
+const data = [
+  'hello', 
+  42, 
+  false, 
+  null, 
+  function() { console.log('hi') }
+];
+```
+
+* We can retrieve any array item using the item index
+* In JavaScript array index starts in 0
+* So the first array item index is 0
+
+**Example:**
+```js
+const people = ['nico', 'pedro', 'juan', 'marta', 'belen', 'emilia', 'xime'];
+
+people[0]; // this will return the value 'nico'
+
+console.log(people[0]); // This will output nico that's the value we get from the array
+
+const name = people[0];
+
+console.log(name);
+```
+
+* Also, we can get any array item incrising the index value
+
+**Example:**
+```js
+const data = [
+  'hi', 
+  42, 
+  false, 
+  null, 
+  function() { console.log('hi') }
+];
+
+const message     = data[0];
+const lifeMeaning = data[1];
+const single      = data[2];
+const nullValue   = data[3];
+const greeting    = data[4];
+
+console.log(message);
+console.log(lifeMeaning);
+console.log('single?:', single);
+console.log(greeting);
+
+// Ready to have your mind blown?
+greeting(); // This will show hi on the console
+```
+
+* In this example we see how to get different array items using different item index
+* We can store many different items in an array
+* The last example is kind of difficult so we'll see it again:
+
+**Example:**
+```js
+// The data array has only one item and it's an anonymus function
+const data = [ function() { console.log('hi') } ];
+
+// We ge the first element from the data index
+const greeting = data[0]; 
+
+// this would be the same, is it easier to see it this way?
+const greeting = function() { console.log('hi') };
+
+// In both cases we can call the greeting function
+greeting(); // hi
+```
+
+#### Practice
+[Exercise 117](./exercises/js/ex_117.md)
+
+[Exercise 118](./exercises/js/ex_118.md)
+
+[Exercise 119](./exercises/js/ex_119.md)
+
+* Using index we can also assign new values to the array
+
+**Example:**
+```js
+const students = ['nico', 'pedro', 'juan', 'marta', 'belen', 'emilia', 'xime'];
+
+students[0] = 'Pana'; // We replace nico by Pana
+
+students[3] = 'Jorge'; // We replace marta by Jorge
+
+console.log(students);
+// ['Pana', 'pedro', 'juan', 'Jorge', 'belen', 'emilia', 'xime']
+```
+
+* We have to be careful using indexes
+* If the array doesn't have assigned values in the given index it will create empty items
+
+**Example:**
+```js
+const students = ['nico', 'pedro',  'marta', 'belen', 'emilia'];
+
+// We assign Paola as value in the 9th place (remember arrays start in 0 index)
+students[8] = 'Paola';
+
+// As the original array only has 5 items it will create empty array items
+console.log(students);
+// [ 'nico', 'pedro', 'marta', 'belen', 'emilia', , , , 'Paola' ]
+```
+
+* JavaScript has dynamic memory so it's already reserving the spaces
+
+**Example:**
+```js
+const students = ['nico', 'pedro',  'marta', 'belen', 'emilia'];
+
+// We assing a value to an index that it doesn't exists
+students[8] = 'Paola';
+
+// We add more values to the empty items
+students[5] = 'Lucas';
+students[6] = 'Lucy';
+students[7] = 'Andy';
+
+// We see that all items have a student name
+console.log(students);
+/*
+[ 
+  'nico',
+  'pedro',
+  'marta',
+  'belen',
+  'emilia',
+      'Lucas',
+      'Lucy',
+      'Andy',
+  'Paola' 
+]
+*/
+```
+* In this example we don't leave any empty array items
+
+#### Practice
+[Exercise 120](./exercises/js/ex_120.md)
+
+[Exercise 121](./exercises/js/ex_121.md)
+
+[Exercise 122](./exercises/js/ex_122.md)
+
+
+## Array methods 
+
+### Length
+* The **length** property of an object which `is an instance of type Array` sets or returns the number of elements in that array
+* This property works in the same way as the string length property
+
+**Example:**
+```js
+const students = ['nico', 'pedro',  'marta', 'belen', 'emilia'];
+
+console.log(students.length); // 5
+```
+
+* We can use this property to get the last item from an array
+* Array index in JavaScript starts in 0
+* The lenght property will return the number of elements
+* To get the last element index we can substract one from the array lenght
+
+**Example:**
+```js
+const students = ['nico', 'pedro',  'marta', 'belen', 'emilia'];
+const studentCount = students.length;
+const studentsLastIndex = studentCount - 1;
+
+console.log(students[studentsLastIndex]); // emilia
+```
+
+* We can do in a different way:
+
+**Example:**
+```js
+const students = ['nico', 'pedro',  'marta', 'belen', 'emilia'];
+
+console.log(students[ students.length - 1 ]); // emilia
+```
+
+* In this example we use the students array to get the length
+* Then we substract one from the students array length
+* Then we get a number as result and use it as students index
+* [MDN array length doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length)
+
+#### Practice
+[Exercise 123](./exercises/js/ex_123.md)
+
+[Exercise 124](./exercises/js/ex_124.md)
+
+### Push, unshift, shift & pop methods
+* We can change an array element using the following methods  **push, unshift, shift & pop**
+
+#### Push
+* The **push** method adds one or more elements to the `end of an array`
+* This method returns the new length of the array
+* [MDN array push doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
+**Example:**
+```js
+const animals = ['dog', 'duck', 'cow'];
+let animalCount = animals.push('cat');
+
+console.log(animals);
+// [ 'dog', 'duck', 'cow', 'cat' ]
+
+console.log(animalCount); // 4
+
+animalCount = animals.push('elephant', 'dolphin');
+
+console.log(animals);
+// [ 'dog', 'duck', 'cow', 'cat', 'elephant', 'dolphin' ];
+
+console.log(animalCount); // 6
+```
+
+* In this example we see how the **push** insert element at the array
+* Also, we get the length number as return value
+* We can pass one ('cat') or many items ('elephant', 'dolphin') to be added to the array
+* The animals array gets updated on each **push** call
+* Using const with array allows us to change the array items but we can't assign a new value to the variable
+* More about [const and updating values in JavaScript](https://mathiasbynens.be/notes/es6-const)
+
+#### Unshift
+* The **unshift** method adds one or more elements to the `beginning of an array`
+* This method returns the new length of the array
+* [MDN array unshift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+
+**Example:**
+```js
+const animals = ['dog', 'duck', 'cow'];
+let animalCount = animals.unshift('cat');
+
+console.log(animals); 
+// [ 'cat', 'dog', 'duck', 'cow' ]
+
+console.log(animalCount); // 4
+
+animalCount = animals.unshift('elephant', 'dolphin');
+
+console.log(animals);
+// [ 'elephant', 'dolphin', 'dog', 'duck', 'cow', 'cat' ];
+
+console.log(animalCount); // 6
+```
+
+#### Shift
+* The **shift** method `removes the first element` from an array and `returns that removed element`
+* This method **changes the length** of the array
+* [MDN array shift doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+
+**Example:**
+```js
+const animals = ['dog', 'duck', 'cow'];
+const dog = animals.shift();
+
+console.log(animals);
+// ['duck', 'cow']
+
+console.log(animals.length); // 2
+
+const duck = animals.shift();
+
+console.log(animals);
+// ['cow']
+
+console.log(animals.length);
+// 1
+
+const cow = animals.shift();
+
+console.log(animals);
+// []
+
+console.log(animals.length);
+// 0
+
+console.log(dog); // dog
+console.log(duck); // duck
+console.log(cow); // cow
+```
+
+* Using the **shift** we can remove the first array element and get it as returned value
+* The length array property changes as it has less elements
+
+#### Pop
+* The **pop** method `removes the last element from an array`returns that element
+* This method changes the length of the array
+* [MDN array pop doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+
+**Example:**
+```js
+const animals = ['dog', 'pato', 'vaca'];
+const cow = animals.pop();
+
+console.log(animals);
+// ['dog', 'duck']
+
+console.log(animals.length);
+// 2
+
+const duck = animals.shift();
+
+console.log(animals);
+// ['dog']
+
+console.log(animals.length);
+// 1
+
+const dog = animals.shift();
+
+console.log(animals);
+// []
+
+console.log(animals.length);
+// 0
+
+console.log(cow); // cow
+console.log(duck); // duck
+console.log(dog); // dog
+```
+
+* We can see that some of the array methods works in the same way
+* They might change the length property
+* Some return the element from the begining or the end and return the element
+* Some adds a new element to the begining or end and return the new array length
+
+### Sort y reverse
+
+#### Sort
+* The **sort** method sorts the elements of an array in place and `returns the array`
+* The sort is not necessarily stable
+* The default sort order is according to string Unicode code points
+* The time and space complexity of the sort cannot be guaranteed as it is implementation dependent
+* [MDN array sort doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+**Example:**
+```js
+const numbers = [1, 4, 2, 5, 3, 8, 9];
+const sortedNumbers = numbers.sort();
+
+console.log(sortedNumbers);
+// [ 1, 2, 3, 4, 5, 8, 9 ]
+```
+
+* This method accepts a function as parameter to be executed to change the way it will sort the elements
+
+#### Reverse
+* The **reverse** method reverses an array in place
+* The first array element becomes the last, and the last array element becomes the first
+* [MDN array reverse doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+
+**Example:**
+```js
+let numbers = [1, 4, 2, 5, 3, 8, 9];
+const reversedNumbers = numbers.reverse();
+
+console.log(reversedNumbers);
+// [ 9, 8, 3, 5, 2, 4, 1 ]
+```
+
+### Concat & join
+
+#### Join
+* The **join** method joins all elements of an array into a string and returns this string
+* This method accepts a string value to join by
+* [MDN array join doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+
+**Example:**
+```js
+const numbers = [1, 4, 2, 5, 3, 8, 9];
+
+const joinedNumbersByDash = numbers.join(' - ');
+
+console.log(joinedNumbersByDash);
+// 1 - 4 - 2 - 5 - 3 - 8 - 9
+
+const joinedNumbersByComma = numbers.join(', ');
+
+console.log(joinedNumbersByComma);
+// 1, 4, 2, 5, 3, 8, 9
+```
+
+* We can choose any string to join array items
+
+#### Concat
+* The **concat** method is used to merge two or more arrays
+* This method does not change the existing arrays, but instead returns a new array
+* [MDN array concat doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+
+**Example:**
+```js
+const animals = ['dog', 'cow', 'cat'];
+const mutants = ['Professor X', 'Cyclops', 'Beast', 'Jean Grey'];
+const animalsAndMutants = animals.concat(mutantes);
+
+console.log(animalsAndMutants);
+/*
+[ 
+  'dog',
+  'cow',
+  'cat',
+  'Professor X',
+  'Cyclops',
+  'Beast',
+  'Jean Grey'
+]
+*/
+```
+
+### IndexOf
+* The **indexOf** method `returns the first index at which a given element can be found` in the array
+* This method returns -1 if the element is not present
+* [MDN array indexOf doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
+
+**Example:**
+```js
+const mutants = ['Professor X', 'Cyclops', 'Beast', 'Jean Grey'];
+
+mutants.indexOf('Beast'); // 2
+
+if (mutants.indexOf('Beast') > -1) {
+  console.log('Beast is X-Men team member');
+}
+
+mutants.indexOf('Logan'); // -1
+
+if (mutants.indexOf('Logan') > -1) {
+  console.log('Logan is X-Men team member');
+} else {
+  console.log('Logan is on his own');
+}
+```
+
+* In the first example we get 2 as return value when asking to know if the value Beast is in the mutants array
+* Then the if condition is true and we show the message
+* In the second example we ask if the value Logan is in the mutants array
+* We get -1 as is not a mutants item (We <3 Logan anyway!)
+
+### toString
+* The **toString** method returns a string representing the specified array and its elements
+* [MDN array toString doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString)
+
+**Example:**
+```js
+const mutants = ['Professor X', 'Cyclops', 'Beast', 'Jean Grey'];
+
+console.log(mutants.toString());
+// 'Professor X', 'Cyclops', 'Beast', 'Jean Grey'
+```
+* It's like calling `mutants.join(',');`
+
+#### Practice
+[Exercise 125](./exercises/js/ex_125.md)
+
+[Exercise 126](./exercises/js/ex_126.md)
+
+[Exercise 127](./exercises/js/ex_127.md)
+
+[Exercise 128](./exercises/js/ex_128.md)
+
+[Exercise 129](./exercises/js/ex_129.md)
+
+[Exercise 130](./exercises/js/ex_130.md)
+
+[Exercise 131](./exercises/js/ex_131.md)
+
+[Exercise 132](./exercises/js/ex_132.md)
+
+[Exercise 133](./exercises/js/ex_133.md)
+
+[Exercise 134](./exercises/js/ex_134.md)
+
+### ForEach
+* The **forEach** method executes a provided function once for each array element
+
+**Example:**
+```js
+const students = ['nico', 'pedro',  'marta', 'belen', 'emilia'];
+
+students.forEach(function(student) {
+  console.log(student);
+});
+```
+
+* In this example we use the forEach array method to iterate over each element of the students array
+* We pass a function as parameter
+* This anonymus function that we pass gets a parameter
+* We can use any parameter name
+* Only remember that this parameter is each array item
+
+**Example:**
+```js
+const pets = ['Amelia', 'Ciro', 'Ulises', 'Carlos'];
+
+pets.forEach(function(petName) {
+  console.log(petName);
+});
+```
+
+* In this example we iterate each pets item
+* The function parameter name is petName as we can name it the way we want
+* We can add a second parameter to the function to know the item index
+
+**Example:**
+```js
+const pets = ['Amelia', 'Ciro', 'Ulises', 'Carlos'];
+
+pets.forEach(function(pet, index) {
+  console.log('index', index); 
+  console.log(pet);
+});
+/*
+  index 0
+  Amelia
+  index 1
+  Ciro
+  index 2
+  Ulises
+  index 3
+  Carlos
+*/
+```
+
+* In this example we can see how the index parameter changes value on each iteration 
+* [MDN array forEach doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+#### Practice
+[Exercise 135](./exercises/js/ex_135.md)
+
+[Exercise 136](./exercises/js/ex_136.md)
+
+### Map
+* The **map** method `creates a new array with the results of calling a provided function on every element` in the calling array
+
+**Example:**
+```js
+const pets = ['Amelia', 'Ciro', 'Ulises', 'Carlos'];
+
+const petsNameInUpperCase = pets.map(function(pet) {
+  return pet.toUpperCase();
+});
+
+console.log(petsNameInUpperCase) // [ 'AMELIA', 'CIRO', 'ULISES', 'CARLOS' ] Todos en mayúscula
+console.log(pets) // ['Amelia', 'Ciro', 'Ulises', 'Carlos'] Este array quedó igual que antes
+```
+
+* In this example we see how to iterate over each pets item
+* On each iteration the function is going to be executed and we can return a value
+* Each returned value is going to be an item on the array that map will return once is over iterating all items
+* As we are returning a value then we can change it
+* In this example we transform each pet name into upercase
+* The original array is not modifed
+* [MDN array map doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+#### Practice
+[Exercise 137](./exercises/js/ex_137.md)
+
+[Exercise 138](./exercises/js/ex_138.md)
+
+### Filter
+* The **filter** method creates a new array with all elements that pass the test implemented by the provided function
+* The iterated item will be part of the returned array only if the functions return a true value
+* If the function returns false then the item doesn't get added to the return array
+
+**Example:**
+```js
+const greades = [1, 2, 3, 4, 10, 5];
+
+const goodGreades = grades.filter(function(grade) {
+  return grade === 10;
+});
+
+console.log(goodGreades); // [10] array with only one item
+console.log(greades); // [1, 2, 3, 4, 10, 5] origina array 
+```
+
+#### Practice
+[Exercise 139](./exercises/js/ex_139.md)
+
+[Exercise 140](./exercises/js/ex_140.md)
+
+### Reduce
+* The **reduce** method applies a function against an accumulator and each element in the array (from left to right) to `reduce it to a single value`
+* The reduce function that we pass as parameter accepts the following parameters:
+  * The first param is the **accumulator**
+  * The second value is the **currentValue**
+
+**Example:**
+```js
+const numbers = [1, 2, 3, 4, 10, 5];
+const result = numbers.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+});
+
+console.log(result); // 25 We get only one value as final result
+```
+
+* [MDN array reduce doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+#### Practice
+[Exercise 141](./exercises/js/ex_141.md)
+
+[Exercise 142](./exercises/js/ex_142.md)
+
+* Learn more about array methods on the [MDN array doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+## Objects
+* An **object literal** is a list of zero or more pairs of property names and associated values of an object
+* To define an object we use curly braces **{}**
+* Objects allows us to define more complex values in a easier way
+
+**Example:**
+```js
+{} // literal object 
+const myObject = {}; // object assigned to a variable
+```
+
+#### Practice
+[Exercise 143](./exercises/js/ex_143.md)
+
+### Properties
+* An object can properties that will describe it
+* Properties have a name like variables
+* To assign a value to a property we use colon
+* Porperties are separated using coma
+* Properties can be of any type of value
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+};
+
+console.log(person);
+```
+
+* We can access an object property using the object name, dot and the property name
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+};
+
+console.log(persona.name);
+console.log(persona.age);
+```
+
+#### Practice
+[Exercise 144](./exercises/js/ex_144.md)
+
+[Exercise 145](./exercises/js/ex_145.md)
+
+[Exercise 146](./exercises/js/ex_146.md)
+
+[Exercise 147](./exercises/js/ex_147.md)
+
+
+* We can access a property that doesn't exist on the object and get undefined as value
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+};
+
+console.log(person.married); // undefined
+```
+
+* Assing a property value the same way that you would do it for a variable
+* To access the property that will recibe the value you need to still use the object name, dot and the property name
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+};
+
+person.name = 'Martin';
+person.age = 20;
+
+console.log(person);
+// { name: 'Martín', age: 20 }
+```
+
+* The object properties are variables too so we can assign or get there value
+* Object properties in JavaScript are dynamic
+* This means that if we assign a value to an object property that hasen't been defined it will create it
+* We need to make sure we get the variable name wright
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+};
+
+console.log(person.married); // undefined
+
+person.married = true;
+
+console.log(person);
+// { name: 'Nico', age: 38, married: true }
+
+console.log(persona.married); // true
+```
+
+#### Practice
+[Exercise 148](./exercises/js/ex_148.md)
+
+[Exercise 149](./exercises/js/ex_149.md)
+
+### Methods
+* JavaScript objects have methods
+* In this lenguage an object method is a property with a function as value
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  greet: function() {
+    console.log('Hi, how are you?');
+  }
+}
+```
+
+* In this example we define the person object and we assign two properties
+  * name: it's just a string value
+  * greet: has a function assigned as value
+* To call a function without the object we do it the following way:
+
+**Example:**
+```js
+const greet = function() {
+  console.log('Hi, how are you?');
+}
+
+greet(); // Hi, how are you?
+```
+
+* To call a object method we do it in a pretty similar way:
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  greet: function() {
+    console.log('Hi, how are you?');
+  }
+}
+
+person.greet(); // Hi, how are you?
+```
+
+* `person.greet` without the parenthesis will return the function definition
+* `person.greet()` will execute the greet method (it will execute the function code)
+
+#### Practice
+[Exercise 150](./exercises/js/ex_150.md)
+
+[Exercise 151](./exercises/js/ex_151.md)
+
+* We learned about Strings, Numbers and Arrays methods
+* When we call a string, number or array literal methods JavaScript will transform the literal value into a object
+* So calling `'text'` will transform into a String object and the same will happen with the others values types
+* Now we can create our own
+* Un método también puede aceptar parámetros:
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  greet: function(name) {
+    console.log(`Hi ${name}, how are you?`);
+  }
+}
+
+person.greet('Marta'); // Hi Marta, how are you?
+```
+
+* In this example we see that calling a method is similar to calling just a function
+* And this is because we are actualy calling a function that's an object property
+* In the methods body we can access the current object properties using the **this** reserved word
+* For now we can think about **this** being the object
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  greet: function(name) {
+    console.log(`Hi my name is: ${this.name}`);
+  }
+}
+person.greet(); // Hi my name is: Nico
+```
+
+#### Practice
+[Exercise 152](./exercises/js/ex_152.md)
+
+[Exercise 153](./exercises/js/ex_153.md)
+
+[Exercise 154](./exercises/js/ex_154.md)
+
+[Exercise 155](./exercises/js/ex_155.md)
+
+[Exercise 156](./exercises/js/ex_156.md)
+
+[Exercise 157](./exercises/js/ex_157.md)
+
+[Exercise 158](./exercises/js/ex_158.md)
+
+* Inside an object method we can update an object property value
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38,
+  greet: function(name) {
+    console.log(`Hi my name is: ${this.name}`);
+  },
+  birthday: function() {
+    this.age++;
+  }
+}
+
+console.log(person.age) // 38
+person.birthday(); 
+console.log(person.age) // 39
+```
+
+### Object dynamic properties
+* In some cases we need to access an object property using a string value
+* Using **[]** and a string value with the property name we can access the object property value
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38,
+  greet: function(name) {
+    console.log(`Hi my name is: ${this.name}`);
+  },
+  birthday: function() {
+    this.age++;
+  }
+}
+
+console.log(persona['name']);  // Nico
+console.log(persona['age']);  // 38
+```
+
+* We can also use variables to do the same
+
+**Example:**
+```js
+const name = 'name';
+const age = 'age';
+
+const person = {
+  name: 'Nico',
+  age: 38,
+  greet: function(name) {
+    console.log(`Hi my name is: ${this.name}`);
+  },
+  birthday: function() {
+    this.age++;
+  }
+}
+
+console.log(person[name]);  // nico
+console.log(person[age]);  // 38
+```
+
+#### Practice
+[Exercise 159](./exercises/js/ex_159.md)
+
+[Exercise 160](./exercises/js/ex_160.md)
+
+* Now that we know how to access dynamic properties from an object we'll learn about objects keys!
+* `Object.keys` returns an array value with all the objects properties names (not the value)
+* To call this method we need to use the `Object` value
+* This method accpets an object as parameter
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+}
+
+const properties = Object.keys(person);
+
+console.log(properties); // [ 'name', 'age' ]
+```
+
+* In this previous example we see that calling the Object keys method and passing the person object we get an array back with the properties names on it
+* We can combine this using dynamic properties
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+}
+
+const properties = Object.keys(person);
+
+console.log(properties); // [ 'name', 'age' ]
+
+const name = properties[0];
+
+console.log(person[name]);
+```
+
+* In this example we get the first item from the properties array (name)
+* Then we use the name variable with the name value on it to access the object person name property
+* This is getting gooooood, now we can use all the things that we learned together
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+}
+
+const properties = Object.keys(person);
+
+person.forEach(function(property) {
+  console.log(person[property]);
+});
+```
+
+* We get the properties from the person object using Object keys method
+* As we get an array back we can use forEach to iterate over the properties names
+* On each iteration we get a property name value (name then age)
+* We use the property variable (with the property value on it) to access dynamicly to the person object properties
+* If we add more properties to the object we can still access them using dynamic properties and iterating over the properties array
+
+**Example:**
+```js
+const person = {
+  name: 'Nico',
+  age: 38
+}
+
+person.phone = 202123231;
+person.street = '234 My Street';
+
+const properties = Object.keys(person);
+
+person.forEach(function(property) {
+  console.log(person[property]);
+});
+
+/*
+  Nico
+  38
+  202123231
+  234 My Street
+*/
+```
+
+* [MDN Object key doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+
+#### Practice
+[Exercise 161](./exercises/js/ex_161.md)
+
+[Exercise 162](./exercises/js/ex_162.md)
+
+## Callback
+* A **callback function** `is a function passed into another function as an argument`, which is then invoked inside the outer function to complete some kind of routine or action
+* JavaScript is a asynchronous language
+* This mean that we don't know how the code is going to execute
+* We can't be sure that the previous statement has executed
+* Using callbacks we can handle our async calls
+
+**Example:**
+```js
+function doSomething(functionAsAParameter) {
+  console.log('do something');
+  functionAsAParameter();
+}
+
+const done = function() {
+  console.log('done');
+}
+
+doSomething(done);
+```
+
+* In this example we defined a doSomething function that accepts a function as parameter
+* The doSomething function shows a message as output and then executes the function that got as parameter
+* As the functionAsAParameter is the done function it will get executed 
+* An easier way to see this functionality can be in the following way:
+
+**Example:**
+```js
+const done = function() {
+  console.log('done');
+}
+
+function doSomething() {
+  console.log('do something');
+  done();
+}
+
+doSomething();
+```
+
+* We get a similar functionality doing it this way but in the first example we use a function as parameter
+* In this example we just use a global function to do something similar to what we can do with a callback
+* Callback important concepts:
+  * A callback is just a function passed as parameter to other function
+  * The function that recived the function as parameter will call it
+
+**Example:**
+```js
+let number = 0;
+
+function add(n, callback) {
+  n++;
+  callback(n);
+}
+
+add(number, function(result) {
+  console.log(result); // 1
+});
+
+console.log(number); // 0
+```
+
+* A callback function can get one or many parameters
+* In this example we call the add function passing a number and a function as parameter
+* After incrementing the number in one will call the callback function
+* Other way to understand this code:
+
+**Example:**
+```js
+let number = 0;
+
+let finalResult = function(result) {
+  console.log(result);
+}
+
+function add(n, callback) {
+  n++;
+  callback(n);
+}
+
+add(number, finalResult);
+
+console.log(number); // 0
+```
+
+* We have been using this concept without knowing it to iterate over arrays:
+
+**Example:**
+```js
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Callback
+numbers.forEach(function(number) {
+  console.log(number);
+})
+
+// Callback
+let evenNumbers = numbers.filter(function(number) {
+  return number % 2 === 0;
+});
+
+// Callback
+let result = numbers.reduce(function(result, number) {
+  return result + number;
+});
+
+// Callback
+let mappedNumbers = numbers.map(function(number) {
+  return number + 10;
+});
+```
+
+* We can see that the filter, reduce and map functions recieve a function as parameter
+* This functions will get called internally
+* If you know jQuery you will find this code familiar
+
+**Example:**
+```js
+$( function() { 
+  console.log( "ready!" ); 
+} );
+```
+
+* In this case jQuery uses $() as a function and we can pass a function that will get executed once the DOM is loaded
+* We pass the $() a function, so we're passing a callback
+* jQuery uses this code to get all the code that needs to execute once the document is loaded
+* We'll use this concept a lot when coding JavaScript
+* Using callbacks we can handle JavaScript in an async way
+
+* [MDN callback doc](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+* [Callback Hell](http://callbackhell.com)
+* [MDN using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+
+## Hoisting
+* JavaScript (ES5) is an extremely flexible language and will happily `allow you to declare a variable almost anywhere`
+
+```js
+console.log(name);
+var name = "nico";
+```
+
+![Hoisting](resources/images/js/hoisting.png)
+
+* Also, we can do this with functions
+
+**Example:**
+```js
+greet(); // Hi i'm showing a message without being defined
+
+function greet() {
+  console.log('Hi i\'m showing a message without being defined :)');
+}
+```
+* This practice it's called **Hoisting**
+* Remember that JavaScript was created to be an easy language to use and learn
+* When running the code JavaScript will go through the code 2 times
+* First time it will check the variables and funcitons definition and move them to the higher part of the code
+* Second time will execute the rest of the code
+
+**Example:**
+```js
+function greet() {
+  console.log('Hi i\'m showing a message without being defined :)');
+}
+
+greet(); // Hi i'm showing a message without being defined
+```
+
+* This is a better way to write our code
+* First we declare the function and then we use it
+* Hoisting can crear unexpected bugs
+* This won't happen in the newer node.js versions
+* You can prevent this problem setting your code to the [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+* Use `use strict` in the following way
+
+**Example:**
+```js
+'use strict';
+
+console.log(name);
+var name = "nico";
+```
+
+* [MDN Hoisting doc](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+* [Back to basics JavaScript hoisting](https://www.sitepoint.com/back-to-basics-javascript-hoisting)
+* [JavaScript hoisting explained](https://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)
+* [Understanding hoisting in JavaScript](https://scotch.io/tutorials/understanding-hoisting-in-javascript)
+* [5 JavaScript bad parts that are fixed in ES6](https://medium.freecodecamp.org/5-javascript-bad-parts-that-are-fixed-in-es6-c7c45d44fd81)
+
+## Scope
+* **Scope** is the current `context of execution`
+* The context in which `values and expressions are "visible," or can be referenced`
+* In a simple way it's which variables I can access from different sections of the code
+* JavaScript has global variables that can be accessed from everywhere
+
+**Example:**
+```js
+var name = 'Pedro';
+
+function showName() {
+  console.log(name);
+}
+
+showName(); // Pedro
+console.log(name); // Pedro
+```
+
+* In this example we defined the **name** variable as global
+* Since it's a global variable we can access it from any place
+* In this example we access the name value within the function
+* This is a good practice as the function it's accessing the global environment
+* A function should't depend on the context to function
+* In this case it's much better to pass the variable as parameter
+* As it's a global variable we can also change it's value too
+
+**Example:**
+```js
+var name = 'Pedro';
+
+function showName() {
+  name = 'Marta';
+  console.log(name);
+}
+
+console.log(name); // Pedro
+
+showName();
+console.log(name); // Marta
+```
+
+* In this example we see how we can change the name value
+* This can affect or change our code workflow so it's better if we pass the value as parameter and then return a new value if we need it
+* Local variables are the once that we only can access from the same place they were defined
+
+**Example:**
+```js
+function showName() {
+  const name = 'Marta';
+  console.log(name);
+}
+
+showName();
+console.log(name); // name is not defined
+```
+
+* In this example the **name** variable is defined as a local variable as it only can be access within the function showName
+* Scope in JavaScript we can say that works from inner to outer bounds (it will make sense, I promise)
+* let and const have block element scope
+* var doesn't have block scope
+
+**Example:**
+```js
+{
+  var name = 'Marta';
+  console.log(name); // Marta
+}
+
+console.log(name); // Marta
+
+{
+  let otherName = 'Pepe';
+  console.log(otherName); // Pepe
+}
+
+console.log(otherName); // otroNombre is not defined
+```
+
+* Using var won't give us block element scope, that's why we can access the **otherName** variable outside the { }
+* Using **let** or **const** this changes as they have block level scope
+* So now you know, use let and const whenever you can to avoid having unexpected problems
+
+### Funcitons inside functions
+* Functions can have other functions inside
+
+**Example:**
+```js
+function wellcome() {
+  
+  function greeting() {
+    console.log('Hi Coco!!!');
+  }
+  
+  greeting();
+}
+
+wellcome(); // Hi Coco!!!
+greeting(); // greeting is not defined
+```
+* The function inside (children) other function it's not accessable from outside the parent function
+* In this example we see that we can call the **wellcome** function but not the **greeting** one as is a inner function
+* The **greeting** is a local function and it can only be called from inside the **wellcome** function
+
+**Example:**
+```js
+let name = 'Coco';
+
+function wellcome() {
+  console.log(name);
+
+  function greet() {
+    console.log(name);
+  }
+
+  greet();
+}
+
+wellcome(); // Shows Coco twice
+
+console.log(name) // Coco
+```
+
+* As the **name** variable is global we can access it from anywhere even the **greet** function
+
+**Example:**
+```js
+let name = 'Coco';
+
+function wellcome() {
+  let message = 'Hi ';
+  console.log(message);
+
+  function greet() {
+    console.log(message);
+  }
+
+  greet();
+}
+
+wellcome(); // Shows Hi twice
+console.log(name) // Coco
+console.log(message) // message is not defined
+```
+
+* The **message** variable es defined as local inisde the **wellcome** function
+* Following the pattern from inside out we can access the **message** variable from the **greet** function and from the **wellcome** function body
+* Since **message** is a local variable we can't access it from outside the **wellcome** function
+* We can think about child functions being able to access the parent scope
+
+**Example:**
+```js
+let name = 'Coco';
+
+function wellcome() {
+  let greeting = 'Hola ';
+
+  function greet() {
+    let message = greeting + name;
+    console.log(message);
+  }
+
+  greet();
+  console.log(message); // message is not defined
+}
+
+wellcome(); // muestra Hola 2 veces
+console.log(name) // Coco
+console.log(greeting) // greeting is not defined
+console.log(message); // message is not defined
+```
+
+* Inside the greet function we can access the greeting and name variables
+* We can't access message outside the greet function
+* This is why we can't access message from the wellcome or global scope
+
+**Example:**
+```js
+function wellcome(name) {
+  let message = 'Wellcome ';
+  
+  function greet(value) {
+    return message + ' ' + value;
+  }
+
+  return greet(name);
+}
+
+console.log(wellcome('Coco')); // Wellcome Coco
+```
+
+* Child functions can access even to the parents parameters
+* This concept is know as **closures**
+* [MDN Scope doc](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+* [MDN Closures doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+* [Robert Nyman - Explaining JavaScript scope and closures](https://robertnyman.com/2008/10/09/explaining-javascript-scope-and-closures)
+* [RisingStack - Explaining JavaScript closure scope chain examples](https://community.risingstack.com/explaining-javascript-closure-scope-chain-examples)
+
+## More about functions!
+
+### Arguments
+* The **arguments object** `is an Array-like object` corresponding to the arguments passed to a function
+* It might look like an array but it's not
+* This value will contain all the parameter values that have been passed to the function
+* arguments has a **length** property that returns a number with the amount of parameter that has been passed to the function
+
+**Example:**
+```js
+function greet() {
+  console.log(arguments); // { '0': 'Jarry', '1': 'Coco', '2': 'Nico' }
+  console.log(arguments.length); // 3
+  console.log(arguments[0]); // 'Jarry'
+}
+
+greet('Jarry', 'Coco', 'Nico');
+```
+
+* As it's an Array-like object we can access the first item using index 0
+
+**Example:**
+```js
+function greet() {
+  console.log(arguments[0]); // Jarry
+  console.log(arguments[1]); // Coco
+  console.log(arguments[2]); // Nico
+}
+
+greet('Jarry', 'Coco', 'Nico');
+```
+
+* [MDN arguments doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments)
+
+#### Practice
+[Exercise 163](./exercises/js/ex_163.md)
+
+### Recursion
+* Recursion is an act of a function calling itself
+* Is used to solve problems that contain smaller sub-problems
+* In JavaScript we can call a function inside that same function
+* It's really important when using recursion to add a way to break to avoid recursion for ever
+
+**Example:**
+```js
+function showNumber(number) {
+  
+  if (number <= 10) {
+    console.log(number)
+    number++;
+    showNumber(number);
+  }
+
+}
+
+showNumber(0);
+```
+
+* **showNumber** is a recursive function
+* If number is bigger than 10 the **showNumber** function stops calling itself
+
+* [Microsoft - JavaScript recursion](https://docs.microsoft.com/en-us/scripting/javascript/advanced/recursion-javascript)
+* [Difference between recursion and iteration](https://techdifferences.com/difference-between-recursion-and-iteration-2.html)
+
+### Returning a function from a function
+* As we know a function can return a value
+* In JavaScript functions are a type of value
+* So... a function can return a function
+
+**Example:**
+```js
+function greet() {
+  
+  let otherFunction = function() {
+    console.log('I don\'t know you but this drives me crazzy!!!');
+  }
+  
+  return otherFunction;
+}
+
+let myFunction = greet(); // Calling the greet function we get other function back
+
+console.log(typeof myFunction); // function
+
+myFunction(); // Call the returned function and get I don't know you but this drives me crazzy!!! as output
+```
+
+* Using JavaScript scope we can do things like:
+
+**Example:**
+```js
+function add(number) {
+  
+  let addBothNumbers = function(otherNumber) {
+    return number + otroNumero;
+  }
+  
+  return addBothNumbers;
+}
+
+const adding = add(10);
+const result = adding(20);
+
+console.log(result); // 30
+```
+
+* In example we call the **add** function and pass 10 as parameter
+* The add function returns a function that's **addBothNumbers**
+* This function that we get as result accepts a parameter
+* We assing the returned function in the **adding** variable
+* We can pass a parameter when we call the **adding** function
+* In this case we pass the number 20
+* The **addBothNumbers** gets executed using the **adding** function
+* **addBothNumbers** will add number 20 that is the value that we get from the **otherNumber** param and 10 that was the number passed as parameter to the parent function
+* Using JavaScript scope the **addBothNumbers** still has access to the **number** value
+* At the end we add 10 and 20 using JavaScript scope
+* BUMMMMMMM..... Mind Blowing!!!
+
+![mind](resources/images/js/mind.gif)
+
+## Assets / Resources
+
+### You don't know JavaScript series:
+* [Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/README.md#you-dont-know-js-up--going)
+* [Types & Grammar](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20&%20grammar/README.md#you-dont-know-js-types--grammar)
+* [Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures)
+* [this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
+* [ES6 & Beyond](https://github.com/getify/You-Dont-Know-JS/blob/master/es6%20&%20beyond/README.md#you-dont-know-js-es6--beyond)
+* [Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
+* [ES6 in depth](https://hacks.mozilla.org/category/es6-in-depth)
+* [JS Books](https://jsbooks.revolunet.com/)
+
+# WELCOME TO JAVASCRIPT!!!
+
+![joke](resources/images/js/joke1.jpg)
+
+![joke](resources/images/js/joke2.jpg)
+
+![joke](resources/images/js/joke3.jpg)
