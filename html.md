@@ -1652,7 +1652,7 @@ OR
 **Example**
 ```html
 <body>
-  <p>&lt; lower than</p>
+  <p>&lt; less than</p>
   <p>&gt; greater than</p>
   <p>&amp; ampersand</p>
   <p>&copy; Copyright</p>
