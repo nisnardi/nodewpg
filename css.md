@@ -214,7 +214,7 @@ filename: index.html
 </html>
 ```
 
-Archivo: contact.html
+filename: contact.html
 ```html
 <!DOCTYPE html>
 <html>
@@ -236,7 +236,7 @@ Archivo: contact.html
 </html>
 ```
 
-* We can change the way spans looks like in both documents by only changing one CSS value
+* We can change the way spans look in both documents by only changing one CSS value
 
 **Example:** 
 filename: styles.css
@@ -289,8 +289,8 @@ filename: contact.html
 * To use CSS on our site we need more ways to select elements and apply styles
 * By using different types of selector we can select one or many elements at the same time
 * For example: 
-  * The element selector (tag name) apply the style to all the elements with the same tag name
-  * The id selector apply the style to only the element that has the id attribute
+  * The element selector (tag name) applies the style to all the elements with the same tag name
+  * The id selector applies the style to only the element that has the id attribute
 * [Read the MDN selectors guide](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)
 
 ## ID Selector
@@ -344,7 +344,7 @@ div {
 /* Only select the div with main id */
 div#main { color: red; }
 
-/* Only select the paragraph with red class */
+/* Only select the paragraph with blue class */
 p.blue { color: blue; }
 ```
 ```html
@@ -388,7 +388,7 @@ div, p { color: red; }
 
 ## Universal selector
 * The `*` universal selector matches elements of any type
-* You can use this selector to delete the browser initial styles (Many CSS libraries does it)
+* You can use this selector to delete the browser initial styles (Many CSS libraries do it)
 * [MDN Universal selectors doc](https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors)
 
 **Example:**
@@ -408,8 +408,8 @@ div, p { color: red; }
 ## Attribute selectors
 * Selects elements based on the value of the given attribute
 * First we select the element
-* Then we add brakets
-* Between brakets we add the attribute = value
+* Then we add brackets
+* Between brackets we add the attribute = value
 * [MDN Attribute selectors doc](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
 **Example:**
@@ -475,7 +475,7 @@ div a {
 ```
 
 ## Child selectors
-* Using the **>** selector we can select only those elements matched by the second selector that are the children of elements matched by the first
+* Using the **>** selector we can select only those elements matched by the second selector that are the direct children of elements matched by the first
 * The child combinator **>** is placed between two CSS selectors. 
 * Elements matched by the second selector must be the immediate children of the elements matched by the first selector
 * This is stricter than the descendant selector
