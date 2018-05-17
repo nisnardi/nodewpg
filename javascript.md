@@ -355,11 +355,11 @@ constantVariable = otherValue;
 * [JS Tips - Keyword var vs let](http://www.jstips.co/en/javascript/keyword-var-vs-let)
 
 ### Memory Management
-* If you're wondering on how JavaScript memory and variables work you can read the following guide and know more about it and JS Garabge collection
+* If you're wondering how JavaScript memory and variables work you can read the following guide to know more about it and JS Garbage collection
 * [MDN Memory management doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 
 ## Data types
-* In JavaScript we can use different types of value to represent different things
+* In JavaScript we can use different types of values to represent different things
 
 **Example:**
 ```js
@@ -381,17 +381,17 @@ console.log('age: ', age);
   * **undefined:** A variable that has not been assigned a value has the value `undefined`.
   * **null:** this type has exactly one value: `null`. It represents the intentional absence of any object value
 
-* As programers it's going to be our responsability to choose the right data type for each variable depending the type of value that we need
+* As programmers it's going to be our responsibility to choose the right data type for each variable depending the type of value that we need
 * The operations that we'll be able to do are going to be related to the data type we choose
-* In JavaScript exists many more different types of values and also we can create our own but this are the primitive one
+* There exists many more types of values in JavaScript (and we can even create our own) but these are the primitive ones
 * A primitive (primitive value, primitive data type) is data that is not an object and has no methods
 * [MDN primitive doc](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
 * [MDN data structures doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 
 ### String
-* String represente a text value, we can use them for names, last name, address, etc
-* String values are inclosed between single or double quotes
-* By default we use single quotes for strings but there're some special cases
+* String represents a text value, we can use them for names, last name, address, etc
+* String values are enclosed between single or double quotes
+* By default we use single quotes for strings but there are some special cases
 * [MDN string doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 **Example:**
@@ -403,12 +403,12 @@ console.log(firstname);
 console.log(lastname);
 ```
 
-* In this example we defined two variables (first and lastname) and assigned a string value ('Juan', 'Perez')
-* Also we can use this type of value for messages
+* In this example we defined two variables (firstname and lastname) and assigned them string values ('Juan', 'Perez')
+* We can also use this type of value for messages
 
 **Example:**
 ```js
-let message = 'Wellcome to JavaScript!!!';
+let message = 'Welcome to JavaScript!!!';
 console.log(message);
 ```
 
@@ -416,7 +416,7 @@ console.log(message);
 
 **Example:**
 ```js
-console.log('Wellcome to JavaScript!!!');
+console.log('Welcome to JavaScript!!!');
 ```
 
 * In this example we use a literal **string** as `console.log()` parameter
@@ -469,14 +469,14 @@ console.log(name + ' ' + lastname);
 **Example:**
 ```js
 var name = 'Pedro';
-var template = `Wellcome ${name} to this great site`
+var template = `Welcome ${name} to this great site`
 
 console.log(template);
 ```
 
 * In this example we defined a name variable and assigned the Pedro value
 * Then we create a template variable with a message and the name variable
-* Once we execute this code we'll get Wellcome `Pedro` to this great site
+* Once we execute this code we'll get Welcome `Pedro` to this great site
 * We can add all the variables that we need to a template
 * Also templates are multiline
 
@@ -1216,7 +1216,7 @@ console.log(message);
 
 **Example:**
 ```js
-const text = 'Wellcome to JavaScript!!';
+const text = 'Welcome to JavaScript!!';
 const characterCount = text.length;
 
 console.log(characterCount); // 24
@@ -1224,14 +1224,14 @@ console.log(characterCount); // 24
 
 **Example:**
 ```js
-const text = 'Wellcome to JavaScript!!';
+const text = 'Welcome to JavaScript!!';
 
 console.log(text.length);
 ```
 
 **Example:**
 ```js
-console.log('Wellcome to JavaScript!!'.length);
+console.log('Welcome to JavaScript!!'.length);
 ```
 
 * Strings has a length property that allows us to know the string value length (characters)
@@ -1818,7 +1818,7 @@ const name = '';
 if (name === '') {
   console.log('Please input your name');
 } else {
-  console.log('Wellcome: ' + name);
+  console.log('Welcome: ' + name);
 }
 ```
 
@@ -1829,7 +1829,7 @@ if (name === '') {
 const name = '';
 
 if (name) {
-  console.log('Wellcome: ' + name);
+  console.log('Welcome: ' + name);
 } else {
   console.log('Please input your name');  
 }
@@ -1844,7 +1844,7 @@ if (name) {
 const name = null;
 
 if (name) {
-  console.log('Wellcome: ' + name);
+  console.log('welcome: ' + name);
 } else {
   console.log('Please input your name');  
 }
@@ -1860,7 +1860,7 @@ console.log(typeof name) // object
 const name = null;
 
 if (name && null !== null) {
-  console.log('Wellcome: ' + name);
+  console.log('welcome: ' + name);
 } else {
   console.log('Please input your name');  
 }
@@ -2332,7 +2332,7 @@ if (getUserAge() >= 18) {
 }
 
 if (isUserLoggedIn()) {
-  console.log('Wellcome to the site');
+  console.log('welcome to the site');
 }
 ```
 
@@ -3752,7 +3752,7 @@ console.log(otherName); // otherName is not defined
 
 **Example:**
 ```js
-function wellcome() {
+function welcome() {
   
   function greeting() {
     console.log('Hi Coco!!!');
@@ -3761,18 +3761,18 @@ function wellcome() {
   greeting();
 }
 
-wellcome(); // Hi Coco!!!
+welcome(); // Hi Coco!!!
 greeting(); // greeting is not defined
 ```
 * The function inside (children) other function it's not accessable from outside the parent function
-* In this example we see that we can call the **wellcome** function but not the **greeting** one as is a inner function
-* The **greeting** is a local function and it can only be called from inside the **wellcome** function
+* In this example we see that we can call the **welcome** function but not the **greeting** one as is a inner function
+* The **greeting** is a local function and it can only be called from inside the **welcome** function
 
 **Example:**
 ```js
 let name = 'Coco';
 
-function wellcome() {
+function welcome() {
   console.log(name);
 
   function greet() {
@@ -3782,7 +3782,7 @@ function wellcome() {
   greet();
 }
 
-wellcome(); // Shows Coco twice
+welcome(); // Shows Coco twice
 
 console.log(name) // Coco
 ```
@@ -3793,7 +3793,7 @@ console.log(name) // Coco
 ```js
 let name = 'Coco';
 
-function wellcome() {
+function welcome() {
   let message = 'Hi ';
   console.log(message);
 
@@ -3804,21 +3804,21 @@ function wellcome() {
   greet();
 }
 
-wellcome(); // Shows Hi twice
+welcome(); // Shows Hi twice
 console.log(name) // Coco
 console.log(message) // message is not defined
 ```
 
-* The **message** variable es defined as local inisde the **wellcome** function
-* Following the pattern from inside out we can access the **message** variable from the **greet** function and from the **wellcome** function body
-* Since **message** is a local variable we can't access it from outside the **wellcome** function
+* The **message** variable es defined as local inisde the **welcome** function
+* Following the pattern from inside out we can access the **message** variable from the **greet** function and from the **welcome** function body
+* Since **message** is a local variable we can't access it from outside the **welcome** function
 * We can think about child functions being able to access the parent scope
 
 **Example:**
 ```js
 let name = 'Coco';
 
-function wellcome() {
+function welcome() {
   let greeting = 'Hi ';
 
   function greet() {
@@ -3830,7 +3830,7 @@ function wellcome() {
   console.log(message); // message is not defined
 }
 
-wellcome(); // shows hi 2 times
+welcome(); // shows hi 2 times
 console.log(name) // Coco
 console.log(greeting) // greeting is not defined
 console.log(message); // message is not defined
@@ -3838,12 +3838,12 @@ console.log(message); // message is not defined
 
 * Inside the greet function we can access the greeting and name variables
 * We can't access message outside the greet function
-* This is why we can't access message from the wellcome or global scope
+* This is why we can't access message from the welcome or global scope
 
 **Example:**
 ```js
-function wellcome(name) {
-  let message = 'Wellcome ';
+function welcome(name) {
+  let message = 'welcome ';
   
   function greet(value) {
     return message + ' ' + value;
@@ -3852,7 +3852,7 @@ function wellcome(name) {
   return greet(name);
 }
 
-console.log(wellcome('Coco')); // Wellcome Coco
+console.log(welcome('Coco')); // welcome Coco
 ```
 
 * Child functions can access even to the parents parameters
