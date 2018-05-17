@@ -234,6 +234,7 @@ name = 'Pablo';
 ```
 
 * We can define all the variables first and then assign the values:
+* Variables in JS can be of different [types](https://www.w3schools.com/js/js_datatypes.asp)
 
 **Example:**
 ```js
@@ -289,7 +290,7 @@ node index.js
 [Exercise 5](./exercises/js/ex_5.md)
 
 * After executing the program we should see pablo & 20 as output
-* `console.log()` accepts multiple values comma separated 
+* `console.log()` accepts multiple comma separated values 
 * We can show a message and the variable value
 
 **Example: index.js (filename)**
@@ -305,14 +306,14 @@ console.log('age: ', age);
 node index.js
 ```
 
-* Now our output looks like: **name: Pablo** y **age: 20**
+* Now our output looks like: **name: Pablo** and **age: 20**
 * This is an easy way to debug our variable values
 
 #### Practice
 [Exercise 6](./exercises/js/ex_6.md)
 
 ### ES6
-* In the language new version we can use **let** to define variables
+* In version 6 of the language we can use **let** to define variables
 * This statement declares a **block scope local variable**, optionally initializing it to a value
 * Using **let** will help us scope our variables in a better way
 * [MDN let doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
