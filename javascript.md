@@ -476,27 +476,28 @@ console.log(template);
 
 * In this example we defined a name variable and assigned the Pedro value
 * Then we create a template variable with a message and the name variable
-* Once we execute this code we'll get Welcome `Pedro` to this great site
+* Once we execute this code we'll get `Welcome Pedro to this great site`
 * We can add all the variables that we need to a template
-* Also templates are multiline
+* Templates can be multiline
 
 **Example:**
 ```js
 let mom = 'Marta';
 let dad = 'Martín';
-let template = `My mother name is ${mom} & my dad name is ${dad}`;
+let template = `My mother\'s name is ${mom} & my dad\'s name is ${dad}`;
 
 console.log(template);
 ```
 
-* We'll get as result: My mother name is Marta & my dad name is Martín
+* We'll get as result: My mother's name is Marta & my dad's name is Martín
+* We will explain the backslash quote thing later ;)
 * Using string concatenation we can get the same result
 
 **Example:**
 ```js
 let mom = 'Marta';
 let dad = 'Martín';
-let message = 'My mother name is ' + mom + ' & my dad name is ' + dad;
+let message = 'My mother\'s name is ' + mom + ' & my dad\'s name is ' + dad;
 
 console.log(message);
 ```
@@ -525,7 +526,7 @@ console.log(otherText);
 ```
 
 * In this case single or double quotes are part of the value
-* When using quotes as part of the value we have to choose between scaping the quotes or just using the quote type that it's not part of the content:
+* When using quotes as part of the value we have to choose between escaping the quotes or just using the quote type that is not part of the content:
   * Use double quotes if the text has single quote content
   * Use singe quotes if the text has double quote content
 
@@ -552,7 +553,7 @@ console.log(capacity);
 
 [Exercise 21](./exercises/js/ex_21.md)
 
-* A common mistake it's to code numbers as string
+* A common mistake is to code numbers as strings
 
 **Example:**
 ```js
@@ -560,11 +561,11 @@ let age = 38;
 let capacity = "50";
 ```
 
-> In this example we have two variables that it looks like we are assigning numbers values
-> Age has a number type and capacity has a string value with the representation of a number
-> Having different types allows us to do different types of operations, for example we can add, substract numbers but not strings
+> In this example we have two variables that it looks like we are assigning number values. 
+> Age has a number type and capacity has a string value with the representation of a number.
+> Having different types allows us to do different types of operations, for example we can add or subtract numbers but not strings
 
-* We'll talk about doing math using number types values
+* We'll talk later about doing math using number type values
 
 ### Boolean
 * This type of value only accepts `true or false` as value
@@ -1186,7 +1187,7 @@ message = '\t \t tab text';
 console.log(message); // tab text
 ```
 
-* Special characters scape:
+* Special characters escape:
 * \'  Single quote
 * \"  Double quote
 * \\  Backslash
