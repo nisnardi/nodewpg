@@ -106,6 +106,7 @@ node
 ### Using Node.js REPL
 * Open your terminal
 * Execute the `node` command
+* If you do not see the **>** symbol (and you are using Windows) try `winpty node` instead
 * Write the following sentence once you see the **>** symbol:
 
 ```javascript
