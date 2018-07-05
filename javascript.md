@@ -1757,7 +1757,7 @@ if (name === 'Miriam') {
 ```js
 const name = 'marta';
 let message = null;
-,
+
 switch (name) {
   case 'Miriam':
     message = 'The name is Miriam';
